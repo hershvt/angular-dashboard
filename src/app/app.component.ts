@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ProductService } from './product/product.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 
 @Component({
@@ -8,9 +9,18 @@ import { ProductService } from './product/product.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor( ) { }
+export class AppComponent implements OnDestroy {
+  mobileQuery: MediaQueryList;
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
-  
+
+  private _mobileQueryListener: () => void;
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 
 }

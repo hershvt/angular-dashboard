@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
-
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -12,6 +16,10 @@ export class ProductFormComponent implements OnInit {
 
   product: Product;
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
     category: new FormControl(''),
@@ -20,7 +28,7 @@ export class ProductFormComponent implements OnInit {
     price: new FormControl(''),
   });
 
-  constructor(public productService: ProductService) { }
+  constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +37,12 @@ export class ProductFormComponent implements OnInit {
     this.product = this.productForm.value;
     //passing this product object to productService 
     this.productService.addProduct(this.product);
+
+    this._snackBar.open('Product Added to Grid', 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
 }
