@@ -22,10 +22,10 @@ export class ProductFormComponent implements OnInit {
 
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-    category: new FormControl(''),
-    serialNo: new FormControl(''),
-    stockCount: new FormControl(''),
-    price: new FormControl(''),
+    category: new FormControl('', [Validators.required]),
+    serialNo: new FormControl('', [Validators.required]),
+    stockCount: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
   });
 
   constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }

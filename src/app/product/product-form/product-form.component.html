@@ -1,33 +1,35 @@
 <h2>
     Add Product </h2>
-
-<form [formGroup]="productForm" (submit)="onFormSubmit()" class="example-form">
-
-
-    <mat-form-field class="example-full-width">
-        <mat-label> Name:</mat-label>
-        <textarea matInput placeholder="Enter product name" formControlName="name"></textarea>
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-        <mat-label> Category:</mat-label>
-        <textarea matInput placeholder="Enter product category" formControlName="category"></textarea>
-    </mat-form-field>
+<div style="width: 100%">
+    <form [formGroup]="productForm" (submit)="onFormSubmit()" class="example-form">
 
 
-    <input type="text">
-    <BR>
-    <BR> serialNo:
-    <input type="text" formControlName="serialNo">
-    <BR>
-    <BR> stockCount:
-    <input type="text" formControlName="stockCount">
-    <BR>
+        <mat-form-field class="example-full-width">
+            <mat-label> Name</mat-label>
+            <input matInput placeholder="Enter product name" formControlName="name">
+        </mat-form-field>
 
-    <BR> price:
-    <input type="text" formControlName="price">
-    <BR>
-    <BR>
-    <input type="submit" [disabled]='!productForm.valid' vaue="Add Product">
+        <mat-form-field class="example-full-width">
+            <mat-label> Category</mat-label>
+            <input matInput placeholder="Enter product category" formControlName="category">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label> Serial No</mat-label>
+            <input matInput placeholder="Enter product serial number" formControlName="serialNo">
+        </mat-form-field>
 
-</form>
+        <mat-form-field class="example-full-width">
+            <mat-label> Stock Count</mat-label>
+            <input matInput placeholder="Enter current stock count" formControlName="stockCount">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label> Price</mat-label>
+            <input matInput placeholder="Enter product price per unit" formControlName="price">
+        </mat-form-field>
+
+        <input type="submit" [disabled]='!productForm.valid' vaue="Add Product">
+
+    </form>
+
+</div>
