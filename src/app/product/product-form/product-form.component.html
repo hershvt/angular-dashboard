@@ -20,15 +20,15 @@
 
         <mat-form-field class="example-full-width">
             <mat-label> Stock Count</mat-label>
-            <input matInput placeholder="Enter current stock count" formControlName="stockCount">
+            <input matInput placeholder="Only Numerics are allowed" formControlName="stockCount">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label> Price</mat-label>
-            <input matInput placeholder="Enter product price per unit" formControlName="price">
+            <input matInput placeholder="Only Numerics are allowed ex.100.00" formControlName="price">
         </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]='!productForm.valid'>Add Product</button>
 
-        <input type="submit" [disabled]='!productForm.valid' vaue="Add Product">
 
     </form>
 
