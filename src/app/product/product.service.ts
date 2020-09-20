@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
-import { data } from './datasource'
+import { data } from '../datasource'
 import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   products$ = new BehaviorSubject<Product[]>([]);
+  category$ = new BehaviorSubject<string>('');
+
   constructor() {
     this.products$.next(data);
   }
@@ -21,5 +23,12 @@ export class ProductService {
   }
   fetchProducts(): Observable<Product[]> {
     return this.products$;
+  }
+  setCategory(s: string) {
+    this.category$.next(s);
+  }
+
+  getCategory() {
+    return this.category$;
   }
 }

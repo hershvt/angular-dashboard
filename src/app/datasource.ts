@@ -1,4 +1,4 @@
-import { Product } from './product.model';
+import { Product } from './product/product.model';
 
 export let data: Product[] = [
     {
@@ -53,7 +53,7 @@ export let data: Product[] = [
     {
 
         'name': 'HP EliteBook',
-        'category': 'Desktop',
+        'category': 'Desktop Computers',
         'serialNo': 'CB27819726',
         'stockCount': 50,
         'price': 47000
@@ -77,7 +77,7 @@ export let data: Product[] = [
     },
     {
         'name': 'Dell Latitude 8080',
-        'category': 'Desktop',
+        'category': 'Desktop Computers',
         'serialNo': 'CB45262747',
         'stockCount': 17,
         'price': 39500
@@ -85,7 +85,7 @@ export let data: Product[] = [
     {
 
         'name': 'Intel Celeron 2Z',
-        'category': 'Desktop',
+        'category': 'Desktop Computers',
         'serialNo': 'CB45262747',
         'stockCount': 11,
         'price': 32000

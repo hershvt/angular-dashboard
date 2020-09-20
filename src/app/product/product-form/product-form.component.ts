@@ -15,6 +15,7 @@ import {
 export class ProductFormComponent implements OnInit {
 
   product: Product;
+  category: string;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -22,7 +23,7 @@ export class ProductFormComponent implements OnInit {
 
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
-    category: new FormControl('', [Validators.required]),
+    category: new FormControl({ value: '', disabled: true }, [Validators.required]),
     serialNo: new FormControl('', [Validators.required]),
     stockCount: new FormControl('', [Validators.required, Validators.pattern('[0-9]+')]),
     price: new FormControl('', [Validators.required, Validators.pattern('[0-9.]+')]),
@@ -31,10 +32,18 @@ export class ProductFormComponent implements OnInit {
   constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.productService.getCategory().subscribe(
+      s => {
+        this.category = s;
+        this.productForm.get('category').setValue(this.category);
+      }
+    );
   }
 
   onFormSubmit() {
     this.product = this.productForm.value;
+    this.product.category = this.category;
+
     //passing this product object to productService 
     this.productService.addProduct(this.product);
 

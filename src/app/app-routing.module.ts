@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomeComponent },
   {
-    path: 'product',
+    path: 'product/:category',
     loadChildren: () => import('./product/product.module')
       .then(m => m.ProductModule)
   }
