@@ -1,0 +1,7 @@
+<ejs-accumulationchart id="container" #accumulationChart [legendSettings]="legendSettings" [tooltip]="tooltipSettings">
+    <e-accumulation-series-collection>
+        <e-accumulation-series name='Project' [dataSource]='data' xName='bank' yName='value' innerRadius="50%" radius="70%" [dataLabel]="dataLabel"
+            explode=false explodeOffset='10%' [explodeIndex]='3' [palettes]='palette'>
+        </e-accumulation-series>
+    </e-accumulation-series-collection>
+</ejs-accumulationchart>
