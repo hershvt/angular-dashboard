@@ -14,12 +14,12 @@
   /* Float four columns side by side */
   .column {
     float: left;
-    width: 50%;
+    width: 40%;
     padding: 0 10px;
   }
   .column1 {
     float: left;
-    width: 50%;
+    width: 60%;
     padding: 0 10px;
   }
 

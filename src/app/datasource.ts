@@ -97,6 +97,14 @@ export let data: Product[] = [
         'serialNo': 'CB45262747',
         'stockCount': 15,
         'price': 29000
+    },
+    {
+
+        'name': 'Seagate 320GB',
+        'category': 'Pen Drive',
+        'serialNo': 'CB45262747',
+        'stockCount': 4,
+        'price': 500
     }
 
 

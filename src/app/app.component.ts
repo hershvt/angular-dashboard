@@ -1,9 +1,10 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, ViewChild } from '@angular/core';
 import { BehaviorSubject, from } from 'rxjs';
 import { ProductService } from './product/product.service';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { data } from './datasource'
 import { map, distinct, tap } from 'rxjs/operators';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
