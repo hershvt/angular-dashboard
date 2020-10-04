@@ -53,7 +53,7 @@ export let data: Product[] = [
     {
 
         'name': 'HP EliteBook',
-        'category': 'Desktop Computers',
+        'category': 'Desktop Computer',
         'serialNo': 'CB27819726',
         'stockCount': 50,
         'price': 47000
@@ -77,7 +77,7 @@ export let data: Product[] = [
     },
     {
         'name': 'Dell Latitude 8080',
-        'category': 'Desktop Computers',
+        'category': 'Desktop Computer',
         'serialNo': 'CB45262747',
         'stockCount': 17,
         'price': 39500
@@ -85,7 +85,7 @@ export let data: Product[] = [
     {
 
         'name': 'Intel Celeron 2Z',
-        'category': 'Desktop Computers',
+        'category': 'Desktop Computer',
         'serialNo': 'CB45262747',
         'stockCount': 11,
         'price': 32000
@@ -105,7 +105,16 @@ export let data: Product[] = [
         'serialNo': 'CB45262747',
         'stockCount': 4,
         'price': 500
+    },
+    {
+
+        'name': 'Kingston 64GB',
+        'category': 'Pen Drive',
+        'serialNo': 'CB45262748',
+        'stockCount': 3,
+        'price': 200
     }
+
 
 
 

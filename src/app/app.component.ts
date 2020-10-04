@@ -5,6 +5,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { data } from './datasource'
 import { map, distinct, tap } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Donut } from './dashboard/donut.model';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
   category = [];
-
+  donutData = [];
   data$ = from(data);
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
     , private productService: ProductService) {
@@ -29,7 +30,21 @@ export class AppComponent implements OnDestroy, OnInit {
     ).subscribe();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.category.forEach(c => {
+      let count = data.filter(e => e.category === c).length;
+      let obj = {
+        'product': '',
+        'value': 0,
+        'text': ''
+      };
+      obj.product = c;
+      obj.value = count;
+      obj.text = '' + count;
+      this.donutData.push(obj);
+    });
+    this.productService.setDonutData(this.donutData);
+  }
   private _mobileQueryListener: () => void;
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

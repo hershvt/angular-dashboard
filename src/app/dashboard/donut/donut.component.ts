@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { IAccLoadedEventArgs, AccumulationTheme, DataLabel, DataLabelSettings } from '@syncfusion/ej2-charts';
 import { AccumulationChartComponent } from '@syncfusion/ej2-angular-charts';
 import { ProductService } from '../../product/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { data } from '../../datasource';
 
 @Component({
   selector: 'dashboard-donut',
@@ -13,14 +14,8 @@ export class DonutComponent implements OnInit {
   @ViewChild("accumulationChart", { static: true }) accumulationChart: AccumulationChartComponent;
 
   public tooltipSettings: Object;
-
-  public data: Object[] = [
-    { index: 0, product: 'Laptop', value: 12, text: '12' },
-    { index: 1, product: 'Desktop Computer', value: 4, text: '4' },
-    { index: 2, product: 'Tablet', value: 5, text: '5' },
-    { index: 3, product: 'Pen Drive', value: 3, text: '3' }
-  ];
-
+  @Input()
+  data: Object[];
   palette: string[]; //color
 
   //Initializing Legend

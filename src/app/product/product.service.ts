@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product.model';
+import { Product, Donut } from './product.model';
 import { data } from '../datasource'
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, from } from 'rxjs';
+import { map, distinct, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+
   products$ = new BehaviorSubject<Product[]>([]);
   category$ = new BehaviorSubject<string>('');
+  donutData: Object[];
+
 
   constructor() {
     this.products$.next(data);
+
   }
   addProduct(product: Product) { //14th
     let products = [];
@@ -31,4 +36,13 @@ export class ProductService {
   getCategory() {
     return this.category$;
   }
+
+  setDonutData(donutData: any): any {
+    this.donutData = donutData;
+  }
+
+  getDonutData() {
+    return this.donutData;
+  }
+
 }
