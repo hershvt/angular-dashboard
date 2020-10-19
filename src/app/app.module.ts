@@ -12,9 +12,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LoginModule } from './auth/login/login.module';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+
 
   ],
   imports: [
@@ -25,7 +27,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <h2>
+                Please Login </h2>
+
+            <div style="width: 100%; align-content: center">
+                <form [formGroup]="loginForm" (submit)="onFormSubmit()" class="example-form">
+
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label> Username</mat-label>
+                        <input matInput placeholder="Enter username" formControlName="username">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label> Password</mat-label>
+                        <input matInput placeholder="Enter password" formControlName="password">
+                    </mat-form-field>
+
+                    <button mat-raised-button type="submit" [disabled]='!loginForm.valid'>LOGIN</button>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
