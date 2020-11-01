@@ -29,3 +29,25 @@
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
+
+
+  #username{
+    text-align: right;
+    margin-right: 0px;
+    align-content: right;
+  }
+
+  a:link{
+    color: white;
+  }
+  a:visited{
+    color: white;
+  }
+
+  a:active{
+    color: white;
+  }
+
+  a:hover{
+    color: white;
+  }

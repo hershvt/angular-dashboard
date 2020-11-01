@@ -6,6 +6,8 @@ import { data } from './datasource'
 import { map, distinct, tap } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Donut } from './dashboard/donut.model';
+import { AuthService } from './service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +19,11 @@ export class AppComponent implements OnDestroy, OnInit {
   category = [];
   donutData = [];
   data$ = from(data);
+
+  userStatus: boolean;
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher
-    , private productService: ProductService) {
+    , private productService: ProductService, private auth: AuthService,
+    private route: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -28,6 +33,8 @@ export class AppComponent implements OnDestroy, OnInit {
       distinct(),
       tap(p => this.category.push(p)),
     ).subscribe();
+
+    this.userStatus = false;
   }
 
   ngOnInit(): void {
@@ -44,6 +51,10 @@ export class AppComponent implements OnDestroy, OnInit {
       this.donutData.push(obj);
     });
     this.productService.setDonutData(this.donutData);
+
+    this.auth.loginStatus.subscribe(data => {
+      this.userStatus = data;
+    });
   }
   private _mobileQueryListener: () => void;
   ngOnDestroy(): void {
@@ -52,5 +63,10 @@ export class AppComponent implements OnDestroy, OnInit {
 
   onProductClick(p) {
     this.productService.setCategory(p);
+  }
+
+  onLogout() {
+    this.auth.loginStatus.next(false);
+    this.route.navigate(['login']);
   }
 }

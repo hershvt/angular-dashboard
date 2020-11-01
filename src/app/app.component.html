@@ -3,7 +3,17 @@
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
-        <h1 class="example-app-name">Responsive App</h1>
+        <h1 class="example-app-name">Warehouse Supply Chain</h1>
+        <div *ngIf="userStatus === true" id="username">
+            <div class="username">Welcome Username &nbsp;&nbsp;
+
+                <a href="#" (click)='onLogout()'>Logout</a>
+            </div>
+        </div>
+        <div *ngIf="userStatus === false" id="username">
+            <div class="username">LOGIN</div>
+
+        </div>
     </mat-toolbar>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
