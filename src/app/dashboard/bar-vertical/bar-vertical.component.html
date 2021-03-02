@@ -1,1 +1,7 @@
-<p>bar-vertical works!</p>
+<ejs-chart #chart style='display:block;' [chartArea]='chartArea' align='center' id='chartcontainer' [primaryXAxis]='primaryXAxis'
+    [primaryYAxis]='primaryYAxis' [title]='title' [tooltip]='tooltip' (load)='load($event)' [palettes]='palette'>
+    <e-series-collection>
+        <e-series [dataSource]='accepted' type='StackingBar' xName='company' yName='amount' name='Accepted' width=2> </e-series>
+        <e-series [dataSource]='rejected' type='StackingBar' xName='company' yName='amount' name='Rejected' width=2> </e-series>
+    </e-series-collection>
+</ejs-chart>

@@ -1,1 +1,7 @@
-<p>bar-horizontal works!</p>
+<ejs-chart #barchart style='display:block;' [chartArea]='chartArea' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+    [title]='title' [tooltip]='tooltip' [palettes]='palette'>
+    <e-series-collection>
+        <e-series [dataSource]='data' type='StackingColumn' xName='product' yName='value' width='30px'> </e-series>
+
+    </e-series-collection>
+</ejs-chart>
